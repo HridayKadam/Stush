@@ -4,7 +4,7 @@ import { X, Instagram, Mail } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
-// import logo from '../assets/logoo3.png';
+import logo from '../assets/logoo3.png';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -34,7 +34,7 @@ export default function Footer() {
           <div>
             <Link to="/" className="flex items-center space-x-4 mb-6">
               <img
-                src="/assets/logoo3.png"
+                src={logo}
                 alt="Stush Logo"
                 className="w-14 h-14 object-contain rounded-full bg-white p-1.5 hover:bg-white/10 transition-colors"
               />
