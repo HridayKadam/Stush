@@ -36,7 +36,7 @@ export default function Footer() {
               <img
                 src={logo}
                 alt="Stush Logo"
-                className="w-14 h-14 object-contain rounded-full bg-white p-1.5 hover:bg-white/10 transition-colors"
+                className="w-14 h-14 object-contain rounded-full bg-white p-1.5  transition-colors"
               />
               <span className="text-3xl font-bold bg-gradient-to-r from-[#F15A24] to-[#ff7e47] bg-clip-text text-transparent">
                 Stush
