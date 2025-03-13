@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X as XIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../assets/logoo3.png';
+// import logo from '../assets/logoo3.png';
 
 const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScK7tjBDj34y3K1auMfM1ftt1ZdpnoaDNqGI8_-jiN0h4yECQ/viewform?usp=dialog";
 
@@ -18,7 +18,7 @@ export default function Navigation() {
             className="flex items-center space-x-4 relative group"
           >
             <motion.img
-              src={logo}
+              src="/assets/logoo3.png"
               alt="Stush Logo"
               className="w-12 h-12 md:w-14 md:h-14 object-contain rounded-full bg-white/50 p-1 shadow-sm"
               initial={{ opacity: 0, x: -20 }}
