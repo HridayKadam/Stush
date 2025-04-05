@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Instagram, Mail } from 'lucide-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import logo from '../assets/logoo3.png';
+import logo from '../assets/stush.png';
 
 export default function Footer() {
   return (

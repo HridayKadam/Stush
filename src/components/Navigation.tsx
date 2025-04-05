@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X as XIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../assets/logoo3.png';
+import logo from '../assets/stush.png';
 
 const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScK7tjBDj34y3K1auMfM1ftt1ZdpnoaDNqGI8_-jiN0h4yECQ/viewform?usp=dialog";
 
