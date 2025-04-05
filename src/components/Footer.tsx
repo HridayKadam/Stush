@@ -15,12 +15,12 @@ export default function Footer() {
               to="/" 
               className="group flex items-center space-x-4 mb-6 transition-transform hover:scale-105"
             >
-              <div className="relative">
+              <div className="relative w-16 h-16">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#F15A24] to-[#ff7e47] rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
                 <img
                   src={logo}
                   alt="Stush Logo"
-                  className="w-16 h-16 object-contain rounded-full bg-white p-2 relative z-10 shadow-xl"
+                  className="w-full h-full object-contain relative z-10 rounded-full bg-white p-2 shadow-xl"
                 />
               </div>
               <span className="text-4xl font-bold bg-gradient-to-r from-[#F15A24] to-[#ff7e47] bg-clip-text text-transparent drop-shadow-lg">

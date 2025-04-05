@@ -17,14 +17,19 @@ export default function Navigation() {
             to="/" 
             className="flex items-center space-x-4 relative group"
           >
-            <motion.img
-              src={logo}
-              alt="Stush Logo"
-              className="w-12 h-12 md:w-14 md:h-14 object-contain rounded-full bg-white/50 p-1 shadow-sm"
+            <motion.div
+              className="relative w-12 h-12 md:w-14 md:h-14"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-            />
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[#F15A24] to-[#ff7e47] rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
+              <img
+                src={logo}
+                alt="Stush Logo"
+                className="w-full h-full object-contain relative z-10 rounded-full bg-white p-2 shadow-xl"
+              />
+            </motion.div>
             <motion.span 
               className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#F15A24] to-[#ff7e47] bg-clip-text text-transparent group-hover:drop-shadow-md transition-all"
               initial={{ opacity: 0, x: -20 }}
