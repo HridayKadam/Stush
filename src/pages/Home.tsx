@@ -14,12 +14,9 @@ import {
   Shuffle,
   Trophy,
   Zap,
-  Share,
   Mail
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScK7tjBDj34y3K1auMfM1ftt1ZdpnoaDNqGI8_-jiN0h4yECQ/viewform?usp=dialog";
 
 const Counter = ({ from, to, duration = 2 }) => {
   const count = useMotionValue(from);
@@ -36,23 +33,33 @@ const Counter = ({ from, to, duration = 2 }) => {
 export default function Home() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
+    setErrorMessage('');
 
     try {
       const { error } = await supabase
         .from('waitlist')
         .insert([{ email }]);
 
-      if (error) throw error;
+      if (error) {
+        if (error.code === '23505') { // Unique constraint violation
+          setErrorMessage('This email is already on the waitlist.');
+        } else {
+          setErrorMessage('Something went wrong. Please try again.');
+        }
+        setStatus('error');
+        return;
+      }
+
       setStatus('success');
       setEmail('');
-      
-      window.open(GOOGLE_FORM_URL, '_blank');
     } catch (error) {
       setStatus('error');
+      setErrorMessage('Something went wrong. Please try again.');
     }
   };
 
@@ -108,10 +115,10 @@ export default function Home() {
                 </button>
               </div>
               {status === 'success' && (
-                <p className="text-green-600 text-sm">Successfully joined! Redirecting to registration form...</p>
+                <p className="text-green-600 text-sm">Thank you for joining our waitlist! We'll keep you updated on our launch.</p>
               )}
               {status === 'error' && (
-                <p className="text-red-600 text-sm">Something went wrong. Please try again.</p>
+                <p className="text-red-600 text-sm">{errorMessage}</p>
               )}
               <p className="text-sm text-gray-600 flex items-center justify-center gap-1">
                 <Sparkles className="w-4 h-4 text-[#F15A24]" />
